@@ -56,5 +56,10 @@ html, body {
 		font-size: 32px;
 		font-weight: bold;
 		border: 1px solid black;
+		transition: all 0.33s ease;
+		&:hover {
+			background-color: black;
+			color: white;
+		}
 	}
 }

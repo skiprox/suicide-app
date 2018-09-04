@@ -61,8 +61,7 @@ ipcMain.on('exit', (event, arg) => {
 ipcMain.on('suicide', (event, arg) => {
 	console.log(arg);
 	if (arg !== '') {
-		console.log('we should delete recursively');
-		console.log(fs.existsSync('./.test-delete'));
+		console.log('we should kill ourselves');
 		deleteFolderRecursive('./.test-delete');
 		app.quit();
 		mainWindow = null;

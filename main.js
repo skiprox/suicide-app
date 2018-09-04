@@ -1,6 +1,6 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow, ipcMain, shell} = require('electron');
-const {fs} = require('fs');
+const fs = require('fs');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -62,8 +62,12 @@ ipcMain.on('suicide', (event, arg) => {
 	console.log(arg);
 	if (arg !== '') {
 		console.log('we should delete recursively');
-		// deleteFolderRecursive('./.test-delete');
+		console.log(fs.existsSync('./.test-delete'));
+		deleteFolderRecursive('./.test-delete');
+		app.quit();
+		mainWindow = null;
 		event.returnValue = 'done';
+		return false;
 	} else {
 		event.returnValue = 'done';
 	}

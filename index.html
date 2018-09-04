@@ -2,11 +2,35 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<title>Hello World!</title>
+	<title>suicide</title>
 	<link rel="stylesheet" href="public/css/style.css">
 	</head>
 	<body>
-		<h1>Hello World!</h1>
+		<div class="overlay" id="overlay"></div>
+		<div class="suicide-container">
+			<h1 class="suicide-header">Do you wish to terminate your life?</h1>
+			<h3 id="suicide-subheader" class="suicide-subheader">for YES, select 3. for NO, select 0.</h3>
+			<ul class="buttons-container">
+				<li class="button">
+					<a href="#" class="button-link">0</a>
+				</li>
+				<li class="button">
+					<a href="#" class="button-link">1</a>
+				</li>
+				<li class="button">
+					<a href="#" class="button-link">2</a>
+				</li>
+				<li class="button">
+					<a href="#" class="button-link">3</a>
+				</li>
+				<li class="button">
+					<a href="#" class="button-link">4</a>
+				</li>
+				<li class="button">
+					<a href="#" class="button-link">5</a>
+				</li>
+			</ul>
+		</div>
 	<script>
 		// You can also require other files to run in this process
 		require('./renderer.js');

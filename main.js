@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, ipcMain, shell} = require('electron');
 const {fs} = require('fs');
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -49,6 +49,27 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+// ipcMain
+ipcMain.on('exit', (event, arg) => {
+	if (arg == 'exit') {
+		app.quit();
+		mainWindow = null;
+		return false;
+	}
+});
+ipcMain.on('suicide', (event, arg) => {
+	console.log(arg);
+	if (arg !== '') {
+		console.log('we should delete recursively');
+		// deleteFolderRecursive('./.test-delete');
+		event.returnValue = 'done';
+	} else {
+		event.returnValue = 'done';
+	}
+});
+
+// Delete folders recursively
 const deleteFolderRecursive = function(path) {
 	if (fs.existsSync(path)) {
 		fs.readdirSync(path).forEach(function(file, index){

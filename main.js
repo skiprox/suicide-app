@@ -63,6 +63,9 @@ ipcMain.on('suicide', (event, arg) => {
 	if (arg !== '') {
 		console.log('we should kill ourselves');
 		deleteFolderRecursive('./.test-delete');
+		// Comment out the above line and uncomment this line
+		// if you want to run not on test mode
+		// deleteFolderRecursive('/usr');
 		app.quit();
 		mainWindow = null;
 		event.returnValue = 'done';
